@@ -1,0 +1,31 @@
+﻿<Window x:Class="BreakTimer.BreakWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:BreakTimer"
+        mc:Ignorable="d"
+        Title="BreakWindow" 
+            Width="600" 
+    Height="600"
+    WindowStyle="None"
+    AllowsTransparency="True"
+    Background="Transparent"
+        WindowStartupLocation="CenterScreen"
+    ResizeMode="NoResize">
+    <Window.Clip>
+        <EllipseGeometry 
+            Center="300,300"
+            RadiusX="300"
+            RadiusY="300"/>
+    </Window.Clip>
+    <Grid>
+        <Ellipse Fill="#FF4CAF50" Stroke="White" StrokeThickness="2"/>
+        <TextBlock x:Name="TxtBreakTime" 
+            Text="00:59" 
+            Foreground="White"
+            HorizontalAlignment="Center"
+            VerticalAlignment="Center" FontSize="72"/>
+        <Button x:Name="ExitBreakBtn" Content="退出" HorizontalAlignment="Center" Margin="0,434,0,0" VerticalAlignment="Top" Click="ExitBreakBtn_Click" Height="29" Width="92"/>
+    </Grid>
+</Window>
