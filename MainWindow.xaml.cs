@@ -115,7 +115,15 @@ namespace BreakTimer
 
         private void TaskbarIcon_TrayMouseDoubleClick(object sender, RoutedEventArgs e)
         {
-            this.Show();
+            if(this.Visibility == Visibility.Hidden)
+            {
+                this.Show();
+                this.Activate();
+            }
+            else
+            {
+                this.Hide();  
+            }
         }
 
 
