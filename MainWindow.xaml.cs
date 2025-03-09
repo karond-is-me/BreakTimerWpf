@@ -68,11 +68,11 @@ namespace BreakTimer
             {
                 case SessionSwitchReason.SessionLock:
                     lockTimeTick = DateTime.Now.Ticks;
+                    timer.Stop();
                     break;
 
                 case SessionSwitchReason.SessionUnlock:
                     var nowTick = DateTime.Now.Ticks;
-                    
                     if (lockTimeTick != -1)
                     {
                         var idleMinute = (nowTick - lockTimeTick) / (double)TimeSpan.TicksPerMinute;
@@ -83,6 +83,11 @@ namespace BreakTimer
                         }
                         lockTimeTick = -1;
                     }
+                    if (!timer.IsEnabled)
+                    {
+                        timer.Start();
+                    }
+                    
                     break;
 
                 // 其他事件类型（可选）
